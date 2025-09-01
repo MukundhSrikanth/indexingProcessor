@@ -41,6 +41,12 @@ sourceSets {
     }
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'indexprocessor.IndexingProcessorApp'
+    }
+}
+
 testing {
     suites {
         test(JvmTestSuite) {
