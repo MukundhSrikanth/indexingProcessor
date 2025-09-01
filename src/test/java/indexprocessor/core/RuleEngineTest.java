@@ -49,4 +49,15 @@ public class RuleEngineTest {
         assertThat(longWordsResult.description()).isEqualTo("Words longer than 5 characters");
         assertThat(longWordsResult.result()).asList().containsExactly("Mukund", "microservice");
     }
+
+    @Test
+    void testStartsWithMRule_withEmptyStrings() {
+        StartsWithMRule rule = new StartsWithMRule();
+        List<String> tokens = List.of("", "Mukund", "", "microservice", ""); 
+        RuleResult<Long> result = rule.apply(tokens);
+
+    // Should count only "Mukund" and "microservice"
+    assertThat(result.result()).isEqualTo(2L);
+    }
+
 }

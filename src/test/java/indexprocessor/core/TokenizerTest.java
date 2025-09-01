@@ -64,4 +64,14 @@ public class TokenizerTest {
         assertThat(tokens).isPresent();
         assertThat(tokens.get()).contains("123", "4567", "test", "Mukund");
     }
+
+    @Test
+    void testLeadingAndTrailingWhitespace() {
+    Path filePath = Path.of("src/test/resources/leadingTrailingWhitespace.txt");
+    Optional<List<String>> tokens = tokenizer.tokenize(filePath);
+
+    assertThat(tokens).isPresent();
+    assertThat(tokens.get()).containsExactly("Hello", "world");
+}
+
 }
