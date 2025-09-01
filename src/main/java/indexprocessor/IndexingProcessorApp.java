@@ -24,33 +24,31 @@ public class IndexingProcessorApp {
         }
 
         Path filePath = Path.of(args[0]);
-
         Tokenizer tokenizer = new Tokenizer();
         Optional<List<String>> optionalTokens = tokenizer.tokenize(filePath);
 
-        if (optionalTokens.isEmpty()) {
-            System.out.println("No tokens could be extracted from the file.");
-            return;
-        }
+        // Handle empty or missing tokens safely without using null
+        optionalTokens
+            .filter(tokens -> !tokens.isEmpty())
+            .ifPresentOrElse(tokens -> {
+                // Define the rules
+                List<BusinessRule<?>> rules = List.of(
+                        new StartsWithMRule(),
+                        new LongWordsRule()
+                );
 
-        List<String> tokens = optionalTokens.get();
+                // Apply rules using RuleEngine
+                RuleEngine engine = new RuleEngine();
+                List<RuleResult<?>> results = engine.applyRules(tokens, rules);
 
-        // Define the rules
-        List<BusinessRule<?>> rules = List.of(
-                new StartsWithMRule(),
-                new LongWordsRule()
-        );
+                // Print results
+                results.forEach(result -> {
+                    System.out.println("Rule: " + result.ruleName());
+                    System.out.println("Description: " + result.description());
+                    System.out.println("Result: " + result.result());
+                    System.out.println("--------------------------------------------------");
+                });
 
-        // Apply rules using RuleEngine
-        RuleEngine engine = new RuleEngine();
-        List<RuleResult<?>> results = engine.applyRules(tokens, rules);
-
-        // Print results
-        results.forEach(result -> {
-            System.out.println("Rule: " + result.ruleName());
-            System.out.println("Description: " + result.description());
-            System.out.println("Result: " + result.result());
-            System.out.println("--------------------------------------------------");
-        });
+            }, () -> System.out.println("No tokens could be extracted from the file."));
     }
 }
