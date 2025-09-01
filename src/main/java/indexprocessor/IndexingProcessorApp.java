@@ -27,21 +27,18 @@ public class IndexingProcessorApp {
         Tokenizer tokenizer = new Tokenizer();
         Optional<List<String>> optionalTokens = tokenizer.tokenize(filePath);
 
-        // Handle empty or missing tokens safely without using null
         optionalTokens
             .filter(tokens -> !tokens.isEmpty())
             .ifPresentOrElse(tokens -> {
-                // Define the rules
+                
                 List<BusinessRule<?>> rules = List.of(
                         new StartsWithMRule(),
                         new LongWordsRule()
                 );
 
-                // Apply rules using RuleEngine
                 RuleEngine engine = new RuleEngine();
                 List<RuleResult<?>> results = engine.applyRules(tokens, rules);
 
-                // Print results
                 results.forEach(result -> {
                     System.out.println("Rule: " + result.ruleName());
                     System.out.println("Description: " + result.description());
