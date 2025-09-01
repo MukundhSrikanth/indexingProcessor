@@ -61,7 +61,7 @@ To run the application using Docker (without installing Java or Gradle):
 ./gradlew clean fatJar --refresh-dependencies
 ```
 
-**Note**: If you want, you can skip building the jar; a pre-built fat jar is already included in build/libs/.
+**Note**: If you want, you can skip building the jar; a pre-built fat jar is already included in ./build/libs/.
 
 ## 🚀 Running the Application
 
