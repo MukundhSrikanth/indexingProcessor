@@ -74,7 +74,7 @@ public class Tokenizer {
     private List<String> tokenizeText(Path filePath) throws IOException {
         try (Stream<String> lines = Files.lines(filePath)) {
             return lines
-                    .flatMap(line -> Stream.of(line.split("\\s+"))) // split on any whitespace
+                    .flatMap(line -> Stream.of(line.split("\\s+"))) 
                     .map(this::cleanToken)
                     .filter(word -> !word.isEmpty())
                     .collect(Collectors.toList());
@@ -84,7 +84,7 @@ public class Tokenizer {
     private List<String> tokenizeCsv(Path filePath, String delimiter) throws IOException {
         try (Stream<String> lines = Files.lines(filePath)) {
             return lines
-                    .flatMap(line -> Arrays.stream(line.split(delimiter, -1))) // keep empty cells
+                    .flatMap(line -> Arrays.stream(line.split(delimiter, -1)))
                     .map(String::trim)
                     .filter(word -> !word.isEmpty())
                     .map(this::cleanToken)
