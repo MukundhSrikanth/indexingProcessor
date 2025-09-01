@@ -30,13 +30,10 @@ public class IndexingProcessorApp {
 
         Path filePath = Path.of(args[0]);
 
-        // Load configuration
         ConfigLoader config = new ConfigLoader();
 
-        // Initialize tokenizer with configuration
         Tokenizer tokenizer = new Tokenizer(config);
 
-        // Tokenize file
         Optional<List<String>> optionalTokens = tokenizer.tokenize(filePath);
 
         optionalTokens
