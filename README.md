@@ -41,6 +41,17 @@ It can serve as a foundation for building indexing, searching, or text-processin
   - Helps track application flow and debug issues during execution.  
 - Log messages appear on the console when running the application, giving real-time feedback on processing status.
 
+## ⚙️ Requirements
+
+To build and run the project locally (without Docker), install the following:
+- **Java 21** (JDK 21 or later)
+- **Gradle 9** (or use the Gradle wrapper included with the project)
+
+To run the application using Docker (without installing Java or Gradle):
+
+**Docker** (Docker Desktop on Mac/Windows, or Docker Engine on Linux)
+**Suggested method** : Using Docker allows the application to run in a platform-independent environment with all dependencies bundled.
+
 ## 🏗 Build and Packaging
 
 - The application is built using **Gradle**.  
@@ -50,14 +61,11 @@ It can serve as a foundation for building indexing, searching, or text-processin
 ./gradlew clean fatJar --refresh-dependencies
 ```
 
-## ⚙️ Requirements
-
-To build and run the project, install the following:
-
-- **Java 21** (JDK 21 or later)  
-- **Gradle 9** (or use the Gradle wrapper included with the project)
+**Note**: If you want, you can skip building the jar; a pre-built fat jar is already included in build/libs/.
 
 ## 🚀 Running the Application
+
+**Option 1: Run locally using Java**
 
 Use the command:
 
@@ -74,3 +82,32 @@ java -jar ./build/libs/indexing-processor-all.jar src/test/resources/input.json
 ```
 **NOTE** 
 Please make sure to provide the **exact path for the JAR file** and **input file** while executing the application. Run this command from the **root directory of the project (indexingProcessor)**.
+Please modify the contexts of the input files under **src/test/resources/** for testing. 
+
+**Option 2: Run using Docker** (Suggested Method)
+
+If you have Docker installed, you can run the application with any input file from any location using the provided script:
+
+Build the Docker image (only once): Run the command from the **root directory of the project (indexingProcessor)**. 
+
+```bash
+docker build -t index-processor .
+```
+
+Run the app with your input file:
+
+```bash
+./run-docker.sh /full/path/to/your/inputFile.txt
+```
+
+Example:
+
+```bash
+./run-docker.sh ~/Desktop/inputFile.txt
+./run-docker.sh ~/Downloads/data.csv
+./run-docker.sh /Users/alice/Documents/input.json
+```
+
+**Note** : Taking the liberty here to say I really enjoyed working on this assignment. Thank you so much for your time and this opportunity! It really means a lot, if you have come to this point and are reading this. Hope you liked my effort. Thanking you once again. 
+Kind Regards, 
+Mukundh Srikanth 
