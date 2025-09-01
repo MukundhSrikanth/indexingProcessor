@@ -41,6 +41,29 @@ It can serve as a foundation for building indexing, searching, or text-processin
   - Helps track application flow and debug issues during execution.  
 - Log messages appear on the console when running the application, giving real-time feedback on processing status.
 
+## 📥 Cloning the Repository
+
+Before building or running the application, you need to clone the repository to your local machine.
+**Prerequisite**: Make sure Git is installed on your system. You can check by running:
+
+```bash
+git --version
+```
+
+Clone the repository:
+
+```bash
+git clone https://github.com/MukundhSrikanth/indexingProcessor.git
+```
+
+This will create a local copy of the project in a folder named indexingProcessor. You can then navigate into the project folder:
+
+```bash
+cd indexingProcessor
+```
+
+After this, you can follow the instructions to build or run the application locally or with Docker.
+
 ## ⚙️ Requirements
 
 To build and run the project locally (without Docker), install the following:
