@@ -40,11 +40,11 @@ public class Tokenizer {
         try {
             switch (fileType) {
                 case "txt":
-                    return Optional.of(tokenizeText(filePath)); // TXT logic unchanged
+                    return Optional.of(tokenizeText(filePath));
                 case "csv":
-                    return Optional.of(tokenizeCsv(filePath, config.getDelimiter("csv"))); // CSV fix
+                    return Optional.of(tokenizeCsv(filePath, config.getDelimiter("csv")));
                 case "json":
-                    return Optional.of(tokenizeJson(filePath)); // JSON with keys + nested + empty filtering
+                    return Optional.of(tokenizeJson(filePath));
                 default:
                     logger.error("Unsupported file type: " + fileType);
                     return Optional.empty();
@@ -71,7 +71,6 @@ public class Tokenizer {
         return Optional.empty();
     }
 
-    // ---------------- TXT ----------------
     private List<String> tokenizeText(Path filePath) throws IOException {
         try (Stream<String> lines = Files.lines(filePath)) {
             return lines
@@ -82,7 +81,6 @@ public class Tokenizer {
         }
     }
     
-    // ---------------- CSV ----------------
     private List<String> tokenizeCsv(Path filePath, String delimiter) throws IOException {
         try (Stream<String> lines = Files.lines(filePath)) {
             return lines
@@ -95,7 +93,6 @@ public class Tokenizer {
         }
     }
 
-    // ---------------- JSON ----------------
     private List<String> tokenizeJson(Path filePath) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root = mapper.readTree(filePath.toFile());
@@ -132,11 +129,6 @@ public class Tokenizer {
                 || node.isNull();
     }
 
-    // ---------------- CLEAN TOKEN ----------------
-    /**
-     * Remove all punctuation except hyphens and trim whitespace.
-     * Example: "micro-services!" -> "micro-services"
-     */
     private String cleanToken(String token) {
         if (token == null) return "";
         return token.replaceAll("[\\p{Punct}&&[^-]]+", "").trim();
