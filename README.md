@@ -138,7 +138,7 @@ PowerShell (Windows)
 **Example** :
 CMD (Windows)
 ```bash
-run-docker.sh %cd%\src\test\resources\input.txt
+.\run-docker.sh %cd%\src\test\resources\input.txt
 ```
 
 **Example** : 
