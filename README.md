@@ -121,11 +121,12 @@ Build the Docker image (only once): Run the command from the **root directory of
 docker build -t index-processor .
 ```
 
-Run the app with your input file ... or you could run the inputFiles present in the project. 
+Run the app with your custome input file ... or you could run the inputFiles present in the project. 
 ```bash
 src/test/resources/input.txt
 ```
 
+**Example** :
 PowerShell (Windows)
 ```bash
 .\run-docker.sh "C:\Users\YourName\Desktop\inputFile.txt"
@@ -134,6 +135,7 @@ PowerShell (Windows)
 ```
 - Use double quotes around paths with spaces
 
+**Example** : 
 macOS (Terminal)
 ```bash
 ./run-docker.sh ~/Desktop/inputFile.txt
@@ -141,11 +143,10 @@ macOS (Terminal)
 ./run-docker.sh /Users/alice/Documents/input.json
 ```
 
+**Example** :
 Linux (Bash)
 ```bash
-./run-docker.sh ~/inputFile.txt
-./run-docker.sh /home/yourname/data.csv
-./run-docker.sh /opt/files/input.json
+MSYS_NO_PATHCONV=1 ./run-docker.sh /d/mukundh-project/indexingProcessor/src/test/resources/input.txt
 ```
 
 **Note** : Taking the liberty here to say I really enjoyed working on this assignment. Thank you so much for your time and this opportunity! It really means a lot, if you have come to this point and are reading this. Hope you liked my effort. Thanking you once again.
