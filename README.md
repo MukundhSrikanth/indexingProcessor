@@ -126,16 +126,26 @@ Run the app with your input file ... or you could run the inputFiles present in 
 src/test/resources/input.txt
 ```
 
+PowerShell (Windows)
 ```bash
-./run-docker.sh /full/path/to/your/inputFile.txt
+.\run-docker.sh "C:\Users\YourName\Desktop\inputFile.txt"
+.\run-docker.sh "D:\Projects\data.csv"
+.\run-docker.sh "C:\path\to\your\file.json"
 ```
+- Use double quotes around paths with spaces
 
-Example:
-
+macOS (Terminal)
 ```bash
 ./run-docker.sh ~/Desktop/inputFile.txt
 ./run-docker.sh ~/Downloads/data.csv
 ./run-docker.sh /Users/alice/Documents/input.json
+```
+
+Linux (Bash)
+```bash
+./run-docker.sh ~/inputFile.txt
+./run-docker.sh /home/yourname/data.csv
+./run-docker.sh /opt/files/input.json
 ```
 
 **Note** : Taking the liberty here to say I really enjoyed working on this assignment. Thank you so much for your time and this opportunity! It really means a lot, if you have come to this point and are reading this. Hope you liked my effort. Thanking you once again.
