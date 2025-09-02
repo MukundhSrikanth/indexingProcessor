@@ -135,18 +135,23 @@ PowerShell (Windows)
 ```
 - Use double quotes around paths with spaces
 
+**Example** :
+CMD (Windows)
+```bash
+run-docker.sh %cd%\src\test\resources\input.txt
+```
+
 **Example** : 
 macOS (Terminal)
 ```bash
-./run-docker.sh ~/Desktop/inputFile.txt
-./run-docker.sh ~/Downloads/data.csv
+./run-docker.sh $(pwd)/src/test/resources/input.txt
 ./run-docker.sh /Users/alice/Documents/input.json
 ```
 
 **Example** :
 Linux (Bash)
 ```bash
-MSYS_NO_PATHCONV=1 ./run-docker.sh /d/mukundh-project/indexingProcessor/src/test/resources/input.txt
+MSYS_NO_PATHCONV=1 ./run-docker.sh $(pwd)/src/test/resources/input.txt
 ```
 
 **Note** : Taking the liberty here to say I really enjoyed working on this assignment. Thank you so much for your time and this opportunity! It really means a lot, if you have come to this point and are reading this. Hope you liked my effort. Thanking you once again.
