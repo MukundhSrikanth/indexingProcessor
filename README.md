@@ -129,8 +129,7 @@ src/test/resources/input.txt
 **Example** :
 PowerShell (Windows)
 ```bash
-.\run-docker.sh "C:\Users\YourName\Desktop\inputFile.txt"
-.\run-docker.sh "D:\Projects\data.csv"
+.\run-docker.sh "$((Get-Location).Path)\src\test\resources\input.txt"
 .\run-docker.sh "C:\path\to\your\file.json"
 ```
 - Use double quotes around paths with spaces
