@@ -12,33 +12,33 @@ It can serve as a foundation for building indexing, searching, or text-processin
 
 ## 📜 Business Rules
 
-- Business rules are implemented in a configurable manner to allow future updates.  
-- A **RuleEngine** enforces the rules on extracted tokens.  
+- Business rules are implemented in a configurable manner to allow future updates.
+- A **RuleEngine** enforces the rules on extracted tokens.
 - Currently implemented rules:
   - **LongWordsRule** – extracts words longer than 5 characters.
   - **StartsWithMRule** – counts words starting with "M" or "m".
 
 ## 🧩 Main Components
 
-- **Tokenizer** – Processes input files (`.txt`, `.csv`, `.json`) and extracts tokens.  
-- **ConfigLoader** – Externalizes configuration and loads it from `application.properties`.  
-- **RuleEngine** – Enforces business rules on the extracted tokens.  
+- **Tokenizer** – Processes input files (`.txt`, `.csv`, `.json`) and extracts tokens.
+- **ConfigLoader** – Externalizes configuration and loads it from `application.properties`.
+- **RuleEngine** – Enforces business rules on the extracted tokens.
 - **BusinessRule** – Interface for creating new rules that can be applied via `RuleEngine`.
 
 ## 🧪 Testing
 
-- The application is tested using **JUnit 5** with **AssertJ** for assertions.  
-- Current test coverage: **91%**  
+- The application is tested using **JUnit 5** with **AssertJ** for assertions.
+- Current test coverage: **91%**
 - Includes multiple test classes and sample files to validate functionality and edge cases.
 
 ## 📝 Logging
 
-- The application uses **SLF4J** with **slf4j-simple** as the logging implementation.  
-- Provides informative messages for key events such as:  
-  - Unsupported file types  
-  - Missing or empty input files  
-  - Errors while reading or parsing files  
-  - Helps track application flow and debug issues during execution.  
+- The application uses **SLF4J** with **slf4j-simple** as the logging implementation.
+- Provides informative messages for key events such as:
+  - Unsupported file types
+  - Missing or empty input files
+  - Errors while reading or parsing files
+  - Helps track application flow and debug issues during execution.
 - Log messages appear on the console when running the application, giving real-time feedback on processing status.
 
 ## 📥 Cloning the Repository
@@ -67,6 +67,7 @@ After this, you can follow the instructions to build or run the application loca
 ## ⚙️ Requirements
 
 To build and run the project locally (without Docker), install the following:
+
 - **Java 21** (JDK 21 or later)
 - **Gradle 9** (or use the Gradle wrapper included with the project)
 
@@ -77,7 +78,7 @@ To run the application using Docker (without installing Java or Gradle):
 
 ## 🏗 Build and Packaging
 
-- The application is built using **Gradle**.  
+- The application is built using **Gradle**.
 - To build a **fat jar** (with all dependencies included), run (inside the rootDir):
 
 ```bash
@@ -103,21 +104,27 @@ java -jar ./build/libs/indexing-processor-all.jar src/test/resources/input.csv
 java -jar ./build/libs/indexing-processor-all.jar src/test/resources/input.txt
 java -jar ./build/libs/indexing-processor-all.jar src/test/resources/input.json
 ```
-**NOTE** 
+
+**NOTE**
 Please make sure to provide the **exact path for the JAR file** and **input file** while executing the application. Run this command from the **root directory of the project (indexingProcessor)**.
-Please modify the contexts of the input files under **src/test/resources/** for testing. 
+Please modify the contexts of the input files under **src/test/resources/** for testing.
 
 **Option 2: Run using Docker** (Suggested Method)
 
 If you have Docker installed, you can run the application with any input file from any location using the provided script:
 
-Build the Docker image (only once): Run the command from the **root directory of the project (indexingProcessor)**. 
+Build the Docker image (only once): Run the command from the **root directory of the project (indexingProcessor)**.
+
+**Note** : Please ensure docker desktop is running. 
 
 ```bash
 docker build -t index-processor .
 ```
 
-Run the app with your input file:
+Run the app with your input file ... or you could run the inputFiles present in the project. 
+```bash
+src/test/resources/input.txt
+```
 
 ```bash
 ./run-docker.sh /full/path/to/your/inputFile.txt
@@ -131,6 +138,6 @@ Example:
 ./run-docker.sh /Users/alice/Documents/input.json
 ```
 
-**Note** : Taking the liberty here to say I really enjoyed working on this assignment. Thank you so much for your time and this opportunity! It really means a lot, if you have come to this point and are reading this. Hope you liked my effort. Thanking you once again. 
-Kind Regards, 
-Mukundh Srikanth 
+**Note** : Taking the liberty here to say I really enjoyed working on this assignment. Thank you so much for your time and this opportunity! It really means a lot, if you have come to this point and are reading this. Hope you liked my effort. Thanking you once again.
+Kind Regards,
+Mukundh Srikanth
