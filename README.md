@@ -115,7 +115,7 @@ If you have Docker installed, you can run the application with any input file fr
 
 Build the Docker image (only once): Run the command from the **root directory of the project (indexingProcessor)**.
 
-**Note** : Please ensure docker desktop is running. 
+**Note** : Please ensure docker desktop is running and execute the following commands in **GitBash**. 
 
 ```bash
 docker build -t index-processor .
@@ -126,20 +126,6 @@ Run the app with your custome input file ... or you could run the inputFiles pre
 src/test/resources/input.txt
 ```
 
-**Example** :
-PowerShell (Windows)
-```bash
-.\run-docker.sh "$((Get-Location).Path)\src\test\resources\input.txt"
-.\run-docker.sh "C:\path\to\your\file.json"
-```
-- Use double quotes around paths with spaces
-
-**Example** :
-CMD (Windows)
-```bash
-.\run-docker.sh %cd%\src\test\resources\input.txt
-```
-
 **Example** : 
 macOS (Terminal)
 ```bash
@@ -148,10 +134,23 @@ macOS (Terminal)
 ```
 
 **Example** :
-Linux (Bash)
+GitBash (Bash)
 ```bash
 MSYS_NO_PATHCONV=1 ./run-docker.sh $(pwd)/src/test/resources/input.txt
 ```
+
+## 🌟 Future Scope
+
+**Windows Support**: To prepare scripts to run seamlessly on CMD and PowerShell, displaying output directly in the terminal.
+**Cross-Platform Execution**: Detect OS automatically to run the application on Linux, macOS, or Windows without manual setup.
+
+## 🖥️ Running on a Client Machine (Example)
+
+This section provides examples of running the Index Processor on a Windows client, with screenshots illustrating the process:
+
+![alt text](image-1.png)
+
+![alt text](image.png)
 
 **Note** : Taking the liberty here to say I really enjoyed working on this assignment. Thank you so much for your time and this opportunity! It really means a lot, if you have come to this point and are reading this. Hope you liked my effort. Thanking you once again.
 Kind Regards,
